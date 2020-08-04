@@ -1,0 +1,14 @@
+---
+profile: dev
+actions:
+  to: deployments/cloudfoundry/dev/manifest.yaml
+---
+applications:
+- name: {{artifactId}}
+  memory: 512M
+  buildpacks: https://github.com/cloudfoundry/java-buildpack.git
+  path: ../../../target/{{artifactId}}-{{mavenModel.version}}.jar
+  env:
+    SPRING_APPLICATION_NAME: {{artifactId}}
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
