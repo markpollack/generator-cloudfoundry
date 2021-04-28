@@ -1,0 +1,3 @@
+command:
+  description: Create simple CF manifest for deployment.
+  
